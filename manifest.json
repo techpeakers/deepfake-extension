@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "DeepfakeExtension",
+    "version": "1.0",
+    "description": "Real-time deepfake detection for Zoom meetings.",
+    "permissions": ["activeTab", "scripting", "storage"],
+    "host_permissions": ["*://*.zoom.us/*"],
+    "background": {"service_worker": "background.js"},
+    "content_scripts": [{
+        "matches": ["*://*.zoom.us/*"],
+        "js": ["content.js"],
+        "run_at": "document_end"
+    }],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "encrypted.png",
+            "48": "encrypted.png",
+            "128": "encrypted.png"
+        }
+    }
+}
+
+
